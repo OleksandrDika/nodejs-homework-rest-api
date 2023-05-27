@@ -22,7 +22,6 @@ const getContactById = async (req, res) => {
   }
   res.json(result);
 };
-// getContactById("64691a38f81203a763bed173");
 
 const createContact = async (req, res) => {
   const result = await Contact.create(req.body);
