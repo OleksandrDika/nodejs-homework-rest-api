@@ -10,19 +10,17 @@ const router = express.Router();
 
 router.get("/", cntr.getAllContacts);
 
-// router.get("/:contactId", isValidId, cntr.getContactById);
-router.get("/:contactId", cntr.getContactById);
+router.get("/:contactId", isValidId, cntr.getContactById);
 
 router.post("/", validateBody(schema), cntr.createContact);
 
-// router.delete("/:contactId", isValidId, cntr.deleteContact);
-router.delete("/:contactId", cntr.deleteContact);
+router.delete("/:contactId", isValidId, cntr.deleteContact);
 
-// router.put("/:contactId", isValidId, validateBody(shemas.shema), cntr.updateContact);
-router.put("/:contactId", validateBody(schema), cntr.updateContact);
+router.put("/:contactId", isValidId, validateBody(schema), cntr.updateContact);
 
 router.patch(
   "/:contactId/favourite",
+  isValidId,
   validateBody(updateFavoriteSchema),
   cntr.updateFavorite
 );
